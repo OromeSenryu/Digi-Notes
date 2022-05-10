@@ -9,7 +9,7 @@ import DashboardNotes from './Components/DashboardNotes';
 function App() {
   return (
     <div className="App">
-
+      
       <Routes>
          <Route path="/" element={<LoginOptions />} />
          <Route path="/register" element={<Register />} />

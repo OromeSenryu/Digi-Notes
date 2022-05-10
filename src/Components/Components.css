@@ -1,0 +1,198 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dosis&family=DotGothic16&display=swap');
+
+.pageSection{
+    background-color: #95A3EF;
+    background-size: cover;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.headParagraph{
+    font-family: 'DotGothic16', sans-serif;
+    font-size: 2.2rem;
+}
+
+.secondParagraph{
+    font-family: 'DotGothic16', sans-serif;
+    font-size: 1.5rem;
+}
+
+.tamersContainer{
+    background-color: #95A3EF;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+    max-height: 35%;
+    /* margin-top: 0%;
+    margin-bottom: 0%; */
+}
+
+.tamersMainImages{
+    bottom: 0px;
+    max-width: 32%;
+    position: absolute;
+}
+
+/* TODO: Check link options for multiple CSS archives */
+
+/* *LoginElements */
+.loginElements{
+    background-color: #F1F6FD;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 8px;
+    padding-top: 2%;
+    padding-bottom: 5%;
+    margin-top: 5%;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-bottom: 0%;
+}
+.loginElements a {
+    color: black;
+    text-decoration: none;
+}
+.loginElements button {
+    background-color: #F6D274;
+    font-family: 'Dosis', sans-serif;
+    font-size: 1.4rem;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    align-self: center;
+    width: 63%;
+    height: 2.5rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+}
+
+.imageButton {
+    max-height: 75%;
+    
+}
+
+.userButton {
+    align-items: baseline;
+}
+
+/* * UserLogin */
+.userLoginElements {
+    background-color: #F1F6FD;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 8px;
+    padding-top: 0.5%;
+    padding-bottom: 3%;
+    margin-top: 5%;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-bottom: 0%;
+}
+
+.loginForm {
+    margin-top: 0%;
+}
+
+.userLoginElements input {
+    font-family: 'Dosis', sans-serif;
+    font-size: 1.2rem;
+    color: #676565;
+    background-color: #FCF2D8;
+    border: none;
+    border-radius: 8px;
+    width: 60%;
+    height: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.userLoginElements a {
+    color: black;
+    text-decoration: none;
+}
+
+.userLoginElements button {
+    background-color: #F6D274;
+    font-family: 'Dosis', sans-serif;
+    font-size: 1.4rem;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    align-self: center;
+    width: 60%;
+    height: 2.5rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+}
+
+/* *Register */
+.registerElements {
+    background-color: #F1F6FD;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 8px;
+    padding-top: 0.5%;
+    padding-bottom: 3%;
+    margin-top: 5%;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-bottom: 0%;
+}
+
+.registerElements input {
+    font-family: 'Dosis', sans-serif;
+    font-size: 1.2rem;
+    color: #676565;
+    background-color: #FCF2D8;
+    border: none;
+    border-radius: 8px;
+    width: 60%;
+    height: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.registerElements button {
+    background-color: #F6D274;
+    font-family: 'Dosis', sans-serif;
+    font-size: 1.4rem;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    align-self: center;
+    width: 60%;
+    height: 2.5rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+}
+
+.registerElements a {
+    color: black;
+    text-decoration: none;
+}
+
+.or {
+    font-family: 'DotGothic16', sans-serif;
+    font-size: 1.2rem;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    margin-top: 0%;
+    margin-bottom: 2%;
+}
+
+/* *DashboardNotes */
+.DashboardNotes {
+    margin-top: 15%;
+}
