@@ -1,8 +1,16 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Dosis&family=DotGothic16&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=DotGothic16&display=swap');
+
+:root {
+    --background-blue: #95A3EF;
+    --grey-placeholder: #595858;
+    --google-button: #FFFFFF;
+    --background-sand: #FCF2D8;
+    --background-beige: #FDF8EA;
+}
 
 .pageSection{
-    background-color: #95A3EF;
+    background-color: var(--background-blue);
     background-size: cover;
     position: absolute;
     height: 100%;
@@ -20,7 +28,7 @@
 }
 
 .tamersContainer{
-    background-color: #95A3EF;
+    background-color: var(--background-blue);
     display: flex;
     flex-direction: row-reverse;
     align-items: flex-end;
@@ -33,6 +41,21 @@
     bottom: 0px;
     max-width: 32%;
     position: absolute;
+}
+
+.mainButton {
+    background-color: #F6D274;
+    font-family: 'Dosis', sans-serif;
+    font-size: 1.4rem;
+    text-decoration: none;
+    border-color: #ABABAB;
+    border-radius: 8px;
+    align-self: center;
+    width: 63%;
+    height: 2.5rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    align-items: baseline;
 }
 
 /* TODO: Check link options for multiple CSS archives */
@@ -58,12 +81,17 @@
     color: black;
     text-decoration: none;
 }
-.loginElements button {
-    background-color: #F6D274;
+
+.imageButton {
+    max-height: 92%;
+}
+
+.googleButton {
+    background-color: var(--google-button);
     font-family: 'Dosis', sans-serif;
     font-size: 1.4rem;
     text-decoration: none;
-    border: none;
+    border-color: #ABABAB;
     border-radius: 8px;
     align-self: center;
     width: 63%;
@@ -72,14 +100,7 @@
     cursor: pointer;
 }
 
-.imageButton {
-    max-height: 75%;
-    
-}
 
-.userButton {
-    align-items: baseline;
-}
 
 /* * UserLogin */
 .userLoginElements {
@@ -106,8 +127,8 @@
 .userLoginElements input {
     font-family: 'Dosis', sans-serif;
     font-size: 1.2rem;
-    color: #676565;
-    background-color: #FCF2D8;
+    color: var(--grey-placeholder);
+    background-color: var(--background-sand);
     border: none;
     border-radius: 8px;
     width: 60%;
@@ -118,20 +139,6 @@
 .userLoginElements a {
     color: black;
     text-decoration: none;
-}
-
-.userLoginElements button {
-    background-color: #F6D274;
-    font-family: 'Dosis', sans-serif;
-    font-size: 1.4rem;
-    text-decoration: none;
-    border: none;
-    border-radius: 8px;
-    align-self: center;
-    width: 60%;
-    height: 2.5rem;
-    margin-bottom: 0.5rem;
-    cursor: pointer;
 }
 
 /* *Register */
@@ -155,27 +162,13 @@
 .registerElements input {
     font-family: 'Dosis', sans-serif;
     font-size: 1.2rem;
-    color: #676565;
-    background-color: #FCF2D8;
+    color: var(--grey-placeholder);
+    background-color: var(--background-sand);
     border: none;
     border-radius: 8px;
     width: 60%;
     height: 2.5rem;
     margin-bottom: 0.5rem;
-}
-
-.registerElements button {
-    background-color: #F6D274;
-    font-family: 'Dosis', sans-serif;
-    font-size: 1.4rem;
-    text-decoration: none;
-    border: none;
-    border-radius: 8px;
-    align-self: center;
-    width: 60%;
-    height: 2.5rem;
-    margin-bottom: 0.5rem;
-    cursor: pointer;
 }
 
 .registerElements a {
@@ -196,3 +189,101 @@
 .DashboardNotes {
     margin-top: 15%;
 }
+
+.headerContent {
+    background-color: #6D82F5;
+    display: flex;
+    width: 100%;
+    max-height: 80%;
+    
+}
+
+.digiviceContainer {
+    display: flex;
+    flex-direction: row;
+    float: left;
+    margin-left: 5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    max-width: 30%;
+    max-height: 30%;
+}
+
+.digiviceImage {
+    max-width: 50%;
+    max-height: 50%;
+}
+
+.logoutButton {
+    font-family: 'Dosis', sans-serif;
+    background-color: var(--background-sand);
+    border-color: #ABABAB;
+    border-radius: 6px;
+    float: right;
+    height: 8%;
+    width: 10%;
+    justify-content: center;
+    margin-right: 0%;
+    cursor: pointer;
+}
+
+.noteInputs {
+    display:flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    justify-self: center;
+    width: 80%;
+    height: 4rem;
+}
+
+/* *Notes */
+.allNotesContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+
+}
+
+.noteContainer {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    width: 30%;
+    margin-bottom: 2%;
+}
+
+.noteTitleBox {
+    background-color: var(--background-sand);
+    width: 50%;
+    height: fit-content;
+}
+
+.noteTitleParagraph {
+    font-family: 'DotGothic16', sans-serif;
+}
+
+.noteContentBox {
+    background-color: var(--background-beige);
+    width: 50%;
+    height: fit-content;
+}
+
+.noteContentParagraph {
+    font-family: 'Dosis', sans-serif;
+   
+}
+
+.noteButtonsBox {
+    background-color: var(--background-beige);
+    width: 50%;
+    height: fit-content;
+    padding-bottom: 3%;
+    display: flex;
+    justify-content: space-around;
+}
+

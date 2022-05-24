@@ -1,25 +1,34 @@
-import React, { useState } from 'react';
-import { Link } from "react-router-dom";
-import { auth } from "../Firebase/Firebase-config";
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from "react-router-dom";
+import useRegisterForm from '../Forms/registerForm';
+import { auth, registerUserEmailPass, userExist, } from "../Firebase/Firebase-config";
 import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 function Register () {
+    let navigate = useNavigate();
+    const { handleChange, values, errors, handleSubmit } = useRegisterForm(userForm);
 
-    // * Create new user
-    const createUser = (email, password) => {
-        createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        // ...
-        })
-        .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // ..
-        });
-        // console.log("Obtaining email and password", email, password);
-    }
+    async function userForm() {
+        try {
+          const res = await createUserWithEmailAndPassword(auth, values.email, values.password);
+          await registerUserEmailPass(
+            auth.currentUser.uid,
+            values.userName,
+            values.name,
+            auth.currentUser.email,
+            values.password
+          );
+    
+          const registered = await userExist(auth.currentUser.uid);
+          console.log(registered);
+          if (registered && auth.currentUser.uid) {
+            navigate('/dashboardNotes');
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
 
     // * Sign in with Google
     const googleLogin = () => {
@@ -44,7 +53,6 @@ function Register () {
             // ...
           });
     }
-    // function UserForm() {
         const [email, setEmail] = useState("");
         const [password, setPassword] = useState("");
     
@@ -52,35 +60,42 @@ function Register () {
             <section className="pageSection">
                 <div className="registerElements">
                     <p className="headParagraph">Create an account</p>
-                    <form className='registerUserForm'>
                     
-                        <label className="formLabel">
-                            <input 
-                            type="text"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)} 
-                            placeholder='user@mail.com'/>
-                        </label>
+                    <form className='registerUserForm' onSubmit={handleSubmit}>
                     
-                        <label className="formLabel">
+                        <div className='formInput'>
                             <input 
-                            type="text" 
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            placeholder="Create a password"/>
-                        </label>
+                            name='email'
+                            type='email'
+                            id='inputEmail'
+                            placeholder='user@example.com'
+                            onChange={handleChange}
+                            required/>
+                        </div>
+                    
+                        <div className='formInput'>
+                            <input 
+                            name='password'
+                            type='password'
+                            className='form__text--register'
+                            id='passwordOne'
+                            placeholder='Password'
+                            onChange={handleChange}
+                            required
+                            />
+                        </div>
                         
-                        <button onClick={createUser}>Sign in</button>
+                        <button className='mainButton'>Sign in</button>
                     </form>
 
                     <p className='or'>or</p>
 
-                    <button className="secondButton googleButton" onClick={googleLogin}>
+                    <button className="googleButton" onClick={googleLogin}>
                         <img src="https://i.imgur.com/wSRm9x7.png" className="imageButton"/>  Sign in with Google
                     </button>
                     
                     <p className="secondParagraph">Already have an account?</p>
-                    <button className="secondButton"><Link to="/">Login</Link></button>
+                    <button className="mainButton"><Link to="/">Login</Link></button>
                 </div>
 
                 <div className="tamersContainer">
@@ -88,8 +103,8 @@ function Register () {
                 </div>
             </section>
         )
-    // };
+    };
     
-}
+
 
 export default Register;

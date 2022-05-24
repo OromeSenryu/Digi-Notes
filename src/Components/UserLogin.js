@@ -1,8 +1,25 @@
-import { Link } from "react-router-dom";
-import { auth } from "../Firebase/Firebase-config";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { useEffect } from 'react';
+import { Link, useNavigate } from "react-router-dom";
+import { auth, registerUser, userExist } from "../Firebase/Firebase-config";
+import { signInWithEmailAndPassword, onAuthStateChanged, getAuth } from "firebase/auth";
 
 function UserLogin () {
+
+    const navigate = useNavigate();
+
+    // useEffect(() => {
+    //     onAuthStateChanged(auth, async (user) => {
+    //     if (user) {
+    //         await registerUser(user.uid, user.displayName, user.email);
+    //         const isRegistered = await userExist(user.uid);
+    //         if (isRegistered && user.uid) {
+    //         navigate('/dashboardNotes');
+    //         }
+    //         console.log(user.displayName);
+    //     }
+    //     });
+    // }, [navigate]);
+
     return (
         <section className="pageSection">
             <div className="userLoginElements">
@@ -18,11 +35,11 @@ function UserLogin () {
                         type="password" 
                         placeholder="Introduce your password"/>
                     </label>
-                    <button>Submit</button>
+                    <button className="mainButton">Submit</button>
                 </form>
                 <br></br>
                 <p className="secondParagraph">Don't have an account yet?</p>
-                <button className="secondButton"><Link to="/register">Create one</Link></button>
+                <button className="mainButton"><Link to="/register">Create one</Link></button>
             </div>
 
             <div className="tamersContainer">

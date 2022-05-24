@@ -1,9 +1,14 @@
 import "./Components.css"
-import { Link } from "react-router-dom";
-import { auth } from "../Firebase/Firebase-config";
+import { Link, useNavigate } from "react-router-dom";
+import { auth, } from "../Firebase/Firebase-config";
 import { GoogleAuthProvider, signInWithPopup,  } from "firebase/auth";
 
 function LoginOptions () {
+
+    const navigate = useNavigate();
+    const loginClick = () => {
+        navigate("/dashboardNotes");
+    }
 
     // * Login with Google
     const googleLogin = () => {
@@ -14,7 +19,7 @@ function LoginOptions () {
             const token = credential.accessToken;
             // The signed-in user info.
             const user = result.user;
-            // TODO: React Redirect for getting logged in usser to Dashboard page
+            loginClick(result);
           })
         .catch((error) => {
             // Handle Errors here.
@@ -31,16 +36,13 @@ function LoginOptions () {
         <section className="pageSection">
             <div className="loginElements">
                 <p className="headParagraph">Welcome to Digi-Notes!</p>
-                <button className="mainButton userButton" ><Link to="/userLogin">
-                    <img src="https://i.imgur.com/pfG56a5.png" className="imageButton"/>  Login with account</Link>
+                <button className="mainButton userButton"><Link to="/userLogin">Login with account</Link>
                 </button>
-                <button className="secondButton googleButton" onClick={googleLogin}>
+                <button className="googleButton" onClick={googleLogin}>
                 <img src="https://i.imgur.com/wSRm9x7.png" className="imageButton"/>  Login with Google</button>
                 <br></br>
                 <p className="secondParagraph">Don't have an account yet?</p>
-                <button className="secondButton"><Link to="/register">Create one</Link></button>
-
-                {/* <button><Link to="/dashboardNotes">Dashboard mock</Link></button> */}
+                <button className="mainButton"><Link to="/register">Create one</Link></button>
             </div>
 
             <div className="tamersContainer">

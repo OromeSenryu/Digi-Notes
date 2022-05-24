@@ -1,0 +1,13 @@
+
+
+.noteInputs {
+    display:flex;
+    flex-direction:column;
+    justify-items: center;
+    align-items: center;
+    align-self: flex-start;
+    justify-self: center;
+    width: 60%;
+    height: 2.5rem;
+}
+
