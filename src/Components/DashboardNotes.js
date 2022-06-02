@@ -1,11 +1,15 @@
 import { useNavigate } from "react-router-dom";
+import { useState} from "react"
+
 import { NoteCreator, auth } from "../Firebase/Firebase-config";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 
 
 
 function DashboardNotes () {
+    const [name, setName] = useState ();
 
+    
     const navigate = useNavigate();
     const logoutClick = () => {
         navigate("/");
@@ -17,6 +21,8 @@ function DashboardNotes () {
             // https://firebase.google.com/docs/reference/js/firebase.User
             const uid = user.uid;
             const userName = user.displayName;
+            setName(userName)
+            
         } else {
             // User is signed out
             // ...
@@ -36,16 +42,14 @@ function DashboardNotes () {
         <>
         <header>
             <div className="headerContent">
-                <div className="digiviceContainer">
-                    <img src="https://i.imgur.com/pfG56a5.png" className="digiviceImage"></img>
-                </div>
-                <p className="headParagraph">Welcome to your Digi-Notes!</p>
+                <img src="https://i.imgur.com/pfG56a5.png" className="digiviceImage" ></img>
+                <h1 className="headParagraph" >Welcome to your Digi-Notes, {name}!</h1>
                 <button className="logoutButton" onClick={logOutUser}>Logout</button>
             </div>
         </header>
        
         <section className="pageSection">
-            <section className='notesBoard'> 
+            <section className="notesBoard"> 
                 <NoteCreator/>
             </section>
             {/* <div className="DashboardNotes">
