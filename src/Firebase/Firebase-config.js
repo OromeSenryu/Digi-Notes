@@ -1,4 +1,5 @@
-import { useState, useEffect} from "react"
+import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect} from "react"
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getStorage } from 'firebase/storage';
@@ -21,6 +22,8 @@ import {
 import Swal from 'sweetalert2'
 import withReactContent from "sweetalert2-react-content";
 import { async } from "@firebase/util";
+import { CgTrash } from "react-icons/cg";
+import { TiPencil } from "react-icons/ti";
 
 
 const firebaseConfig = {
@@ -35,7 +38,7 @@ const firebaseConfig = {
 
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-const db = getFirestore(app);
+export const db = getFirestore(app);
 const storage = getStorage(app);
 const MySwal = withReactContent(Swal);
 
@@ -103,7 +106,8 @@ export const NoteCreator = () => {
   const [noteTitle, setNewTitle] = useState ("");
   const [newContent, setNewContent] = useState ("");
   const [notes, setNotes] = useState ([]);
-  const notesCollectionRef = collection(db, "notes")
+  const notesCollectionRef = collection(db, "notes");
+  
 
   const createNote = async () =>{
     await addDoc(notesCollectionRef,{ title: noteTitle, content: newContent, timestamp: serverTimestamp(), user: auth.currentUser.email });
@@ -115,22 +119,17 @@ export const NoteCreator = () => {
 
   const getNotes = async () => {
  
-    // const noteUser = doc.data().user;
     const arrayNotes = [];
-    // console.log("Getting userID:", userID);
-    // console.log("Getting noteUser:", noteUser);
-
+    
     const q = query(collection(db, "notes"), orderBy("timestamp", "desc"));
       onSnapshot(q, (QuerySnapshot) => {
-        console.log("On shapshot")
-        console.log("this is from inside onSnapshot", auth.currentUser.email )
+        // console.log("On shapshot")
+        // console.log("this is from inside onSnapshot", auth.currentUser.email )
         let userID = auth.currentUser.email 
         QuerySnapshot.forEach((docs) => {
-          console.log("On querry shapshot")
-              // let userID = auth.currentUser.email
-          // if (docs.data().user === userID) {
-            console.log("this is from inside onQuerry Snapshot", userID )
-            if (docs.data().user ===   userID) {
+          // console.log("On querry shapshot")
+          // console.log("this is from inside onQuerry Snapshot", userID )
+          if (docs.data().user ===   userID) {
             arrayNotes.push({ ...docs.data(), id: docs.id });
           }
 
@@ -140,14 +139,11 @@ export const NoteCreator = () => {
         setNotes(arrayNotes);
       })
 
-      // const data= await getDocs(query(notesCollectionRef, orderBy("timestamp", "desc")));
-      // setNotes(data.docs.map((doc) =>({...doc.data(), id: doc.id, } )));
    }
 
    // * Delete a note
   const deleteNote = async (id) => {
     let idRef = doc(db, 'notes', id);
-    // console.log("idRef", idRef);
     await deleteDoc(idRef);
     getNotes();
 }
@@ -172,6 +168,12 @@ export const NoteCreator = () => {
       }
     })
   }
+
+  const navigate = useNavigate();
+  const handleEditNote = (noteId) => {
+    navigate('/EditNotes', { state: { noteId: noteId } });
+  };
+
    
   useEffect(() => {
     getNotes();
@@ -204,8 +206,12 @@ export const NoteCreator = () => {
                     <p className="noteContentParagraph">{note.content}</p>
                   </div>
                   <div className="noteButtonsBox">
-                    <button>Edit</button>
-                    <button onClick={()=> {handleConfirmDelete(note.id)}}>Delete</button>
+                     {/* <TiPencil size="1.5em" onClick={handleEditNote}/> */}
+                    <TiPencil size="1.5em" onClick={()=> {
+                              handleEditNote(note.id)
+                    }}/>
+
+                    <CgTrash size="1.5em" onClick={()=> {handleConfirmDelete(note.id)}}/>
                   </div>
                 </div>
               )

@@ -4,6 +4,9 @@ import LoginOptions from './Components/LoginOptions';
 import UserLogin from './Components/UserLogin';
 import Register from './Components/Register';
 import DashboardNotes from './Components/DashboardNotes';
+import EditNotes from './Components/EditNotes';
+
+
 
 
 function App() {
@@ -15,7 +18,7 @@ function App() {
          <Route path="/register" element={<Register />} />
          <Route path="/userLogin" element={<UserLogin />} />
          <Route path="/dashboardNotes" element={<DashboardNotes />} />
-
+         <Route path="/editNotes" element={<EditNotes />} />
       </Routes>
 
     </div>
