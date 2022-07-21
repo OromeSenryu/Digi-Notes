@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+#Digi-Notes Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##About the project
 
-## Available Scripts
+Take your notes with you to any part of the digi-world! 
+Digi-Notes is a CRUD project designed to save your personal notes using a Gmail account.
 
-In the project directory, you can run:
+##Prototype
 
-### `npm start`
+The first step for starting the UI design was selecting a color palette and fonts not only for matching the theme, but taking on count contrast and image criteria to make sure that the final product offers a confortable experience for the user on any mobile screen.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![Color palettes and fonts] (https://i.imgur.com/Pl65IuK.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Once the colors and fonts were set, the next step was start building the UI as an environment that resembles the digital style around the Digimon series and the decade it was created.
 
-### `npm test`
+![Login screen] (https://i.imgur.com/Q4S1w2B.png)
+![Register screen] (https://i.imgur.com/Dex5qgm.png)
+![User Login screen] (https://i.imgur.com/e4tGENG.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+##Final version
 
-### `npm run build`
+![Demo gif] (https://i.imgur.com/6FK32VZ.gif)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+##Comments and learning experience
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This was my very first project working with React! Of course it was pretty hard at the start, but once you get to understand the logic about components, hooks and state management... It's awesome. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![React gif] (https://raw.githubusercontent.com/StewartGF/StewartGF/master/images/react.gif)
+Team React! :D
